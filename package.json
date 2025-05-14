@@ -1,0 +1,21 @@
+{
+  "name": "nice-playground",
+  "version": "1.0.0",
+  "description": "playwright playground",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Khalandr/nice-playground.git"
+  },
+  "author": "Khalandr",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Khalandr/nice-playground/issues"
+  },
+  "homepage": "https://github.com/Khalandr/nice-playground#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.52.0",
+    "@types/node": "^22.15.18"
+  }
+}
