@@ -4,15 +4,19 @@ import { LoggedInPage } from '../pages/LoggedInPage';
 import { testConfig } from '../utils/testConfig';
 
 test.describe('Logout functionality tests', () => {
+    let loginPage: LoginPage;
+    let loggedInPage: LoggedInPage;
+
     test('Successful logout after login', async ({ page }) => {
-        const loginPage = new LoginPage(page);
-        const loggedInPage = new LoggedInPage(page);
+        loginPage = new LoginPage(page);
+        loggedInPage = new LoggedInPage(page);
 
         await loginPage.navigate();
         await loginPage.login(testConfig.validUser.username, testConfig.validUser.password);
-        await expect(loggedInPage.isLogoutButtonVisible()).resolves.toBeTruthy();
+        await expect(await loggedInPage.isLogoutButtonVisible()).toBeTruthy();
         await loggedInPage.clickLogout();
+        await page.waitForURL('**/practice-test-login/**');
         await expect(page.url()).toContain('practice-test-login');
-        await expect(loginPage.isLoginFormVisible()).resolves.toBeTruthy();
+        await expect(await loginPage.isLoginFormVisible()).toBeTruthy();
     });
 });
